@@ -31,7 +31,7 @@ class _FlutterReflectiveScreensaverState
   late var vector = vectors(Random().nextInt(4));
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
   }
 
@@ -121,7 +121,6 @@ class _FlutterReflectiveScreensaverState
 
   @override
   Widget build(BuildContext context) {
-    assert(widget.speed <= 0 || widget.speed >= 20);
     return Stack(
       children: [
         Positioned(
