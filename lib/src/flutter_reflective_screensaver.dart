@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 
 class FlutterReflectiveScreensaver extends StatefulWidget {
   const FlutterReflectiveScreensaver(
-      {super.key, required this.child, this.backgroundColor, this.speed = 4});
+      {super.key, required this.child, this.backgroundColor, this.speed = 4, this.onBounce});
 
   final Widget child;
 
   final double speed;
 
   final Color? backgroundColor;
+
+  final VoidCallback? onBounce;
 
   @override
   State<FlutterReflectiveScreensaver> createState() =>
@@ -36,6 +38,8 @@ class _FlutterReflectiveScreensaverState
   }
 
   Offset vectors(int num) {
+    if (widget.onBounce != null) widget.onBounce!();
+
     if (num == 0) {
       return Offset(widget.speed, -widget.speed);
     } else if (num == 1) {
