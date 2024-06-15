@@ -100,9 +100,12 @@ class _FlutterReflectiveScreensaverState
         vector = vectors(2);
       }
       await Future.delayed(const Duration(milliseconds: 17));
-      setState(() {
-        location += vector;
-      });
+
+      if(mounted){
+        setState(() {
+          location += vector;
+        });
+      }
     }
   }
 
